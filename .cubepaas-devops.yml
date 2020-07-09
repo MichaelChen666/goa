@@ -1,0 +1,20 @@
+stages:
+- name: Clone
+  steps:
+  - sourceCodeConfig: {}
+- name: build
+  steps:
+  - runScriptConfig:
+      image: golang:1.13
+      shellScript: |-
+        mkdir -p /go/src/github.com/MichaelChen666
+        if [ -L /go/src/github.com/MichaelChen666/goa ]
+        then
+          rm /go/src/github.com/MichaelChen666/goa
+        fi
+        ln -s `pwd` /go/src/github.com/MichaelChen666/goa
+        cd /go/src/github.com/MichaelChen666/goa
+        ls
+        sleep 50000s
+timeout: 60
+notification: {}
