@@ -22,5 +22,9 @@ stages:
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: goa:${CICD_EXECUTION_SEQUENCE}
+- name: Deploy
+  steps:
+  - applyYamlConfig:
+      path: ./deployment.yaml
 timeout: 60
 notification: {}
