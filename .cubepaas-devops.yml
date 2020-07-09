@@ -2,7 +2,7 @@ stages:
 - name: Clone
   steps:
   - sourceCodeConfig: {}
-- name: build
+- name: Build
   steps:
   - runScriptConfig:
       image: golang:1.13
@@ -18,5 +18,11 @@ stages:
         go build -o bin/goa
 
         sleep 34000s
+- name: Publish
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: goa:${CICD_EXECUTION_SEQUENCE}
 timeout: 60
 notification: {}
