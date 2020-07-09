@@ -14,7 +14,9 @@ stages:
         fi
         ln -s `pwd` /go/src/github.com/MichaelChen666/goa
         cd /go/src/github.com/MichaelChen666/goa
-        ls
-        sleep 50000s
+
+        go build -o bin/goa
+
+        sleep 34000s
 timeout: 60
 notification: {}
