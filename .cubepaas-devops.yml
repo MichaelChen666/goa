@@ -6,7 +6,7 @@ stages:
   steps:
   - runScriptConfig:
       image: golang:1.13
-      shellScript: |-
+      shellScript: |
         mkdir -p /go/src/github.com/MichaelChen666
         if [ -L /go/src/github.com/MichaelChen666/goa ]
         then
@@ -16,8 +16,6 @@ stages:
         cd /go/src/github.com/MichaelChen666/goa
 
         CGO_ENABLED=0 go build -o bin/goa
-
-        sleep 34000s
 - name: Publish
   steps:
   - publishImageConfig:
