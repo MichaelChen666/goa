@@ -15,7 +15,7 @@ stages:
         ln -s `pwd` /go/src/github.com/MichaelChen666/goa
         cd /go/src/github.com/MichaelChen666/goa
 
-        go build -o bin/goa
+        CGO_ENABLED=0 go build -o bin/goa
 
         sleep 34000s
 - name: Publish
