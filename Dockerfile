@@ -2,8 +2,10 @@ FROM alpine:3.10
 
 WORKDIR /app
 
-ADD ./public .
-ADD ./screenshots .
-ADD ./bin/goa .
+ADD ./public ./public
+ADD ./screenshots ./screenshots
+ADD ./bin/goa ./goa
 
-CMD /app/goa
+RUN chmod +x ./goa
+
+CMD ["/app/goa"]
